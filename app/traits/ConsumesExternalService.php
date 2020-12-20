@@ -14,6 +14,11 @@
             $client = new Client([
                 'base_uri' => $this->baseUri,
             ]);
+
+            if(isset($this->secret)){
+                $headers['Authorization'] = $this->secret;
+            }
+            
             // perform the request (method, url, form parameters, headers)
             $response = $client->request($method,$requestUrl,['form_params' =>$form_params, 'headers' => $headers]);
 
