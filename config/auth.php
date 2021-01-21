@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => env('AUTH_GUARD', 'api'),
+        'guard' => env('AUTH_GUARD', 'passport'),
     ],
 
     /*
@@ -35,7 +35,7 @@ return [
     */
 
     'guards' => [
-        'api' => ['driver' => 'passport'],
+        'api' => ['driver' => 'api'],
     ],
 
     /*

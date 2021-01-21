@@ -17,20 +17,19 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['middleware'=>'client.credentials'],function() use($router) {
+$router->group(['middleware' => 'client.credentials'],function() use ($router){
 
-// Routes for Site1
-Route::get('/users1', 'User1Controller@getUsers');
-Route::post('/users1', 'User1Controller@addUser');
-Route::get('/users1/{id}', 'User1Controller@show');
-Route::put('/users1/put/{id}', 'User1Controller@update');
-Route::delete('/users1/delete/{id}', 'User1Controller@delete');
+    // Site1
+    $router->get('/users1','User1Controller@getUsers');
+    $router->get('/users1/{id}','User1Controller@getUser');
+    $router->put('/users1/update/{id}','User1Controller@updateUser');
+    $router->delete('/users1/delete/{id}','User1Controller@deleteUser');
+    $router->post('/users1/add','User1Controller@addUser');
 
-// Routes for Site2
-Route::get('/users2', 'User2Controller@getUsers');
-Route::post('/users2', 'User2Controller@addUser');
-Route::get('/users2/{id}', 'User2Controller@show');
-Route::put('/users2/put/{id}', 'User2Controller@update');
-Route::delete('/users2/delete/{id}', 'User2Controller@delete');
-
+    // Site2
+    $router->get('/users2','User2Controller@getUsers');
+    $router->get('/users2/{id}','User2Controller@getUser');
+    $router->put('/users2/update/{id}','User2Controller@updateUser');
+    $router->delete('/users2/delete/{id}','User2Controller@deleteUser');
+    $router->post('/users2/add','User2Controller@addUser');
 });
